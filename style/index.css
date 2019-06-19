@@ -61,6 +61,7 @@ body {
 
 .title-en {
   font-size: 20px;
+  letter-spacing: 4px;
 }
 
 .data-area {
@@ -82,7 +83,7 @@ body {
 
 .data-flex .data-title {
   flex: none;
-  height: ¸¸¸%;
+  height: 18%;
 }
 
 .data-area .data-title {
