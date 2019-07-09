@@ -1,115 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>绿地-空气质量在线监测平台</title>
-  <link rel="stylesheet" href="./style/index.css">
+  <link href="./css/style.css" rel="stylesheet" type="text/css" />
+  <script src="./js/rem.js"></script>
+  <title>index</title>
 </head>
-
 <body>
-  <div class="wrapper">
-    <div class="left-area">
-      <div class="logo">
-        <img src="./images/logo.png" width="100%" alt="">
-      </div>
-      <div class="video">
-        <img src="./images/video.png" width="100%" alt=""> 
+  <div class="wrapper flex">
+    <div class="content-top">
+      <div class="logo"><img src="./imgs/logo.png" alt=""></div>
+      <div class="content-left">
+        <img src="./imgs/video.png" alt="">
       </div>
     </div>
-    <div class="right-area">
-      <div class="title font-justify">
-        <div class="title-cn">空气质量在线监测平台</div>
-        <div class="title-en">AIR QUALITY ONLINE MONITORING PLATFORM</div>
+    <div class="content">
+      <div class="name">
+        <img src="./imgs/group.svg" alt="">
       </div>
-      <div class="data-area">
-        <div class="data-flex indoor">
-          <div class="data-title data-title__short">
-            <div class="font-justify data-title__cn">室内</div>
-            <div class="data-title__en">Indoor</div>
-          </div>
-          <div class="status">
-            18
-          </div>
-          <div class="data-content">
-            <div class="data-content__row">
-              <div>CO<span style="font-size: 12px;">2</span></div>
-              <div>683 ppm</div>
+      <div class="content-right">
+        <ul class="list">
+          <li class="item">
+            <div class="title">
+              <span class="title-cn">室  内</span>
+              <span class="title-en">Indoor</span>
             </div>
-            <div class="data-content__row">
-              <div>TVOC</div>
-              <div>3 ppm</div>
+            <span class="num">25</span>
+            <div class="info">
+                <p class="info-data flex">
+                  <span>温度<i class="humid">Temperature</i></span>
+                  <span>74<i>℉</i></span>
+                </p>
+                <p class="info-data flex">
+                  <span>湿度<i class="humid">Humidity</i></span>
+                  <span>40<i>%</i></span>
+                </p>
+                <p class="info-data flex">
+                  <span>CO<sub>2</sub></span>
+                  <span>683<i>ppm</i></span>
+                </p>
+                <p class="info-data flex">
+                  <span>TVOC</span>
+                  <span>3<i>ppm</i></span>
+                </p>
             </div>
-            <div class="data-content__row">
-              <div>温度<div class="data-content__en">Temperature</div></span></div>
-              <div>74 ℉</div>
+          </li>
+          <li class="item">
+            <div class="title">
+              <span class="title-cn">电 梯 厅</span>
+              <span class="title-en">Elevator Hall</span>
             </div>
-            <div class="data-content__row">
-              <div>湿度<div class="data-content__en">Humidity</div>
-              </div>
-              <div>40 %</div>
+            <span class="num">25</span>
+            <div class="info">
+                <p class="info-data flex">
+                  <span>温度<i class="humid">Temperature</i></span>
+                  <span>74<i>℉</i></span>
+                </p>
+                <p class="info-data flex">
+                  <span>湿度<i class="humid">Humidity</i></span>
+                  <span>40<i>%</i></span>
+                </p>
+                <p class="info-data flex">
+                  <span>CO<sub>2</sub></span>
+                  <span>683<i>ppm</i></span>
+                </p>
+                <p class="info-data flex">
+                  <span>TVOC</span>
+                  <span>3<i>ppm</i></span>
+                </p>
             </div>
-          </div>
-        </div>
-        <div class="data-flex elevator">
-          <div class="data-title">
-            <div class="font-justify data-title__cn">电梯厅</div>
-            <div class="font-justify data-title__en">Elevator Hall</div>
-          </div>
-          <div class="status">
-            25
-          </div>
-          <div class="data-content">
-            <div class="data-content__row">
-                <div>CO<span style="font-size: 12px;">2</span></div>
-              <div>430 ppm</div>
+          </li>
+          <li class="item">
+            <div class="title">
+              <span class="title-cn">室   外</span>
+              <span class="title-en">Outdoor</span>
             </div>
-            <div class="data-content__row">
-              <div>TVOC</div>
-              <div>2 ppm</div>
+            <span class="num">25</span>
+            <div class="info">
+                <p class="info-data flex">
+                  <span>温度<i class="humid">Temperature</i></span>
+                  <span>74<i>℉</i></span>
+                </p>
+                <p class="info-data flex">
+                  <span>湿度<i class="humid">Humidity</i></span>
+                  <span>40<i>%</i></span>
+                </p>
+                <p class="info-data flex">
+                  <span>CO<sub>2</sub></span>
+                  <span>683<i>ppm</i></span>
+                </p>
             </div>
-            <div class="data-content__row">
-              <div>温度<div class="data-content__en">Temperature</div></span></div>
-              <div>80 ℉</div>
-            </div>
-            <div class="data-content__row">
-              <div>湿度<div class="data-content__en">Humidity</div>
-              </div>
-              <div>45 %</div>
-            </div>
-          </div>
-        </div>
-        <div class="data-flex outdoor">
-          <div class="data-title data-title__short">
-            <div class="font-justify data-title__cn">室外</div>
-            <div class="data-title__en">Outdoor</div>
-          </div>
-          <div class="status status-yellow">
-            56
-          </div>
-          <div class="data-content">
-            <div class="data-content__row">
-              <div>PM2.5</div>
-              <div>25 μg/m³</div>
-            </div>
-            <div class="data-content__row">
-            </div>
-            <div class="data-content__row">
-              <div>温度<div class="data-content__en">Temperature</div></span></div>
-              <div>86 ℉</div>
-            </div>
-            <div class="data-content__row">
-              <div>湿度<div class="data-content__en">Humidity</div>
-              </div>
-              <div>46 %</div>
-            </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </body>
-
 </html>
