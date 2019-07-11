@@ -115,6 +115,9 @@ span{
   background-size: 120px 120px;
   font-size: 50px;
 }
+.outdoor_num {
+  background: url(../imgs/status-yellow.png) no-repeat center;
+}
 
 .info{
   padding-top: 40px;
