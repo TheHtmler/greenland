@@ -31,7 +31,7 @@
               <span class="title-cn">室  内</span>
               <span class="title-en">Indoor</span>
             </div>
-            <span class="num">25</span>
+            <span class="num" :class="[statusLevel]">25</span>
             <div class="info">
                 <p class="info-data flex">
                   <span>温度<i class="humid">Temperature</i></span>
@@ -56,7 +56,7 @@
               <span class="title-cn">电 梯 厅</span>
               <span class="title-en">Elevator Hall</span>
             </div>
-            <span class="num">27</span>
+            <span class="num" :class="[statusLevel]">27</span>
             <div class="info">
                 <p class="info-data flex">
                   <span>温度<i class="humid">Temperature</i></span>
@@ -81,7 +81,7 @@
               <span class="title-cn">室   外</span>
               <span class="title-en">Outdoor</span>
             </div>
-            <span class="num outdoor_num">{{ outdoorData.aqi }}</span>
+            <span class="num" :class="[statusLevel]">{{ outdoorData.aqi }}</span>
             <div class="info">
                 <p class="info-data flex">
                   <span>温度<i class="humid">Temperature</i></span>
@@ -120,6 +120,7 @@
     const vm = new Vue({
       el: '#app',
       data: {
+        statusLevel: '',
         outdoorData: {
           temperature: '',
           humidity: '',
@@ -142,6 +143,22 @@
             console.log(res.data.data)
             this.outdoorData.pm2_5 = res.data.data.aqi.pm25
             this.outdoorData.aqi = res.data.data.aqi.value
+
+            const AQI = this.outdoorData.aqi
+
+            if(AQI >= 0 && AQI <= 50) {
+              this.statusLevel = 'status-lv1'
+            } else if(AQI > 50 && AQI <= 100) {
+              this.statusLevel = 'status-lv2'
+            } else if(AQI > 100 && AQI <= 150) {
+              this.statusLevel = 'status-lv3'
+            } else if(AQI > 150 && AQI <= 200) {
+              this.statusLevel = 'status-lv4'
+            } else if(AQI > 200 && AQI <= 300) {
+              this.statusLevel = 'status-lv5'
+            } else if(AQI > 300 && AQI <= 500) {
+              this.statusLevel = 'status-lv6'
+            }
           })
         },
         getCondition() {

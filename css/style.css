@@ -115,8 +115,23 @@ span{
   background-size: 120px 120px;
   font-size: 50px;
 }
-.outdoor_num {
-  background: url(../imgs/status-yellow.png) no-repeat center;
+.status-lv1 {
+  background-image: url(../imgs/status-lv1.png);
+}
+.status-lv2 {
+  background-image: url(../imgs/status-lv2.png);
+}
+.status-lv3 {
+  background-image: url(../imgs/status-lv3.png);
+}
+.status-lv4 {
+  background-image: url(../imgs/status-lv4.png);
+}
+.status-lv5 {
+  background-image: url(../imgs/status-lv5.png);
+}
+.status-lv6 {
+  background-image: url(../imgs/status-lv6.png);
 }
 
 .info{
