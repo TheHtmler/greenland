@@ -81,7 +81,7 @@
               <span class="title-cn">室   外</span>
               <span class="title-en">Outdoor</span>
             </div>
-            <span class="num outdoor_num">76</span>
+            <span class="num outdoor_num">{{ outdoorData.aqi }}</span>
             <div class="info">
                 <p class="info-data flex">
                   <span>温度<i class="humid">Temperature</i></span>
@@ -102,14 +102,60 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
+    const WEATHER_URL = "http://aliv8.data.moji.com/whapi/json/aliweather/"
+    const AXIOS_HEADERS = {
+      "Authorization": "APPCODE 4d283daf5f35494ca99e0854f9974952",
+      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+      "Accept": "application/json",
+      "X-Ca-Request-Mode": "debug",
+      "X-Ca-Key": "25644678" 
+    }
+    const PARAMS = {
+      "lat": "31.177838",
+      "lon": "121.40778"
+    }
+
     const vm = new Vue({
       el: '#app',
       data: {
         outdoorData: {
-          temperature: 86,
-          humidity: 40,
-          pm2_5: 76
+          temperature: '',
+          humidity: '',
+          pm2_5: '',
+          aqi: ''
+        }
+      },
+      mounted() {
+        this.getAqi()
+        this.getCondition()
+      },
+      methods: {
+        getAqi() {
+          axios({
+            url: WEATHER_URL + "aqi",
+            method: "post",
+            headers: AXIOS_HEADERS,
+            params: {...PARAMS, "token": "6e9a127c311094245fc1b2aa6d0a54fd"}
+          }).then(res => {
+            console.log(res.data.data)
+            this.outdoorData.pm2_5 = res.data.data.aqi.pm25
+            this.outdoorData.aqi = res.data.data.aqi.value
+          })
+        },
+        getCondition() {
+          axios({
+            url: WEATHER_URL + "condition",
+            method: "post",
+            headers: AXIOS_HEADERS,
+            params: {...PARAMS, "token": "ff826c205f8f4a59701e64e9e64e01c4"}
+          }).then(res => {
+            console.log(res.data.data.condition)
+            let { temp, humidity} = res.data.data.condition
+            this.outdoorData.temperature = Math.round(32 + Number(temp)*1.8)
+            this.outdoorData.humidity = humidity
+          })
         }
       }
     })
