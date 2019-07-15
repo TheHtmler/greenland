@@ -81,7 +81,7 @@
               <span class="title-cn">室   外</span>
               <span class="title-en">Outdoor</span>
             </div>
-            <span class="num" :class="[statusLevel]">{{ outdoorData.aqi }}</span>
+            <span class="num" :class="[statusLevel]">{{ outdoorData.pm2_5 }}</span>
             <div class="info">
                 <p class="info-data flex">
                   <span>温度<i class="humid">Temperature</i></span>
@@ -113,8 +113,8 @@
       "X-Ca-Key": "25644678" 
     }
     const PARAMS = {
-      "lat": "31.177838",
-      "lon": "121.40778"
+      "lat": "31.202777",
+      "lon": "121.486655"
     }
 
     const vm = new Vue({
@@ -124,8 +124,7 @@
         outdoorData: {
           temperature: '',
           humidity: '',
-          pm2_5: '',
-          aqi: ''
+          pm2_5: ''
         }
       },
       mounted() {
@@ -142,21 +141,20 @@
           }).then(res => {
             console.log(res.data.data)
             this.outdoorData.pm2_5 = res.data.data.aqi.pm25
-            this.outdoorData.aqi = res.data.data.aqi.value
 
-            const AQI = this.outdoorData.aqi
+            const AQI = this.outdoorData.pm2_5
 
-            if(AQI >= 0 && AQI <= 50) {
+            if(AQI >= 0 && AQI <= 35) {
               this.statusLevel = 'status-lv1'
-            } else if(AQI > 50 && AQI <= 100) {
+            } else if(AQI > 35 && AQI <= 75) {
               this.statusLevel = 'status-lv2'
-            } else if(AQI > 100 && AQI <= 150) {
+            } else if(AQI > 75 && AQI <= 115) {
               this.statusLevel = 'status-lv3'
-            } else if(AQI > 150 && AQI <= 200) {
+            } else if(AQI > 115 && AQI <= 150) {
               this.statusLevel = 'status-lv4'
-            } else if(AQI > 200 && AQI <= 300) {
+            } else if(AQI > 150 && AQI <= 250) {
               this.statusLevel = 'status-lv5'
-            } else if(AQI > 300 && AQI <= 500) {
+            } else if(AQI > 250) {
               this.statusLevel = 'status-lv6'
             }
           })
