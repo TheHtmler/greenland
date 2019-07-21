@@ -13,7 +13,7 @@ if(!in_id || !elev_id) {
       window.localStorage.setItem('elev_id', elev_val)
       $('.login-wrapper').hide(500)
 
-      $('#video source').attr('src', './img/GL_Video_2.mp4')
+      $('#video source').attr('autoplay', 'autoplay')
 
       in_id = localStorage.getItem('in_id')
       elev_id = localStorage.getItem('elev_id')
@@ -23,7 +23,7 @@ if(!in_id || !elev_id) {
   })
 } else {
   $('.login-wrapper').hide()
-  $('#video source').attr('src', './img/GL_Video_2.mp4')
+  $('#video source').attr('autoplay', 'autoplay')
   getInAqi(in_id)
   getElevAqi(elev_id)
 }
