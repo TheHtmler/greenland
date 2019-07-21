@@ -189,10 +189,16 @@ span{
   background-image: url(../img/status-lv6.png);
 }
 
-.info{
+.info {
   position: relative;
   margin-top: 60px;
   padding: 0 30px;
+  background: url(../img/line.png) right center no-repeat;
+  background-size: contain;
+}
+
+.item:last-child .info {
+  background-image: none;
 }
 
 .info-data{
