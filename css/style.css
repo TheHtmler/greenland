@@ -28,11 +28,57 @@ i{
   display: flex;
 }
 
+.login-wrapper{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 99;
+}
+
+.login-title{
+  text-align: center;
+  padding: 40px 0;
+  background: #4a98d6;
+  font-size: 30px;
+}
+.login-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  text-align: center;
+}
+.serial-number{
+  display: flex;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 18px;
+  line-height: 50px;
+}
+
+.serial-number input{
+  width: 60%;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin-left: 15px;
+  padding: 10px;
+}
+.login-btn{
+  margin: 0 auto;
+  background: #4a98d6;
+  border-radius: 10px;
+  line-height: 50px;
+  font-size: 18px;
+  color: #fff;
+}
+
 .wrapper{
   padding: 20px;
   width: 100%;
   height: 100%;
-  background: url(../imgs/bg.png), no-repeat;
+  background: url(../img/bg.png), no-repeat;
   background-size: cover;
 }
 
@@ -56,6 +102,16 @@ img{
   width: 100%;
 }
 
+.date-box{
+	margin:10px 0 38px;
+	font-size: 18px;
+}
+
+.tip-box{
+	margin-top: 38px;
+	font-size: 18px;
+}
+
 .chinese{
   font-size: 40px;
   letter-spacing: 43px;
@@ -67,12 +123,12 @@ img{
 }
 
 .content{
-  padding: 0 40px;
+  padding-left: 40px;
   width: 90%;
 }
 
 .content-left{
-  padding-top: 160px;
+  padding-top: 100px;
 }
 
 .content-right{
@@ -89,13 +145,12 @@ img{
   vertical-align: top;
   font-size: 16px;
   width: 33.33333%;
-  padding: 0 30px;
   text-align: center;
   box-sizing: border-box;
 }
 
 .title{
-  padding-bottom: 40px;
+  padding-bottom: 60px;
 }
 
 span{
@@ -111,36 +166,39 @@ span{
   line-height: 120px;
   width: 120px;
   height: 120px;
-  background: url(../imgs/status-green.png) no-repeat center;
+  background: url(../img/status-lv1.png) no-repeat center;
   background-size: 120px 120px;
   font-size: 50px;
 }
 .status-lv1 {
-  background-image: url(../imgs/status-lv1.png);
+  background-image: url(../img/status-lv1.png);
 }
 .status-lv2 {
-  background-image: url(../imgs/status-lv2.png);
+  background-image: url(../img/status-lv2.png);
 }
 .status-lv3 {
-  background-image: url(../imgs/status-lv3.png);
+  background-image: url(../img/status-lv3.png);
 }
 .status-lv4 {
-  background-image: url(../imgs/status-lv4.png);
+  background-image: url(../img/status-lv4.png);
 }
 .status-lv5 {
-  background-image: url(../imgs/status-lv5.png);
+  background-image: url(../img/status-lv5.png);
 }
 .status-lv6 {
-  background-image: url(../imgs/status-lv6.png);
+  background-image: url(../img/status-lv6.png);
 }
 
 .info{
-  padding-top: 40px;
+  position: relative;
+  margin-top: 60px;
+  padding: 0 30px;
 }
 
 .info-data{
   justify-content: space-between;
   text-align: left;
+  margin-bottom: 10px;
 }
 
 .info-data span{

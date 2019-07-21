@@ -1,32 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="./css/style.css" rel="stylesheet" type="text/css" />
-  <!-- <script src="./js/rem.js"></script> -->
-  <title>绿地-空气质量在线监测平台</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>绿地-空气质量在线监测平台</title>
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+	  <script type="text/javascript">
+    	
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+   			
+   		});
+    </script>
 </head>
 <body>
-  <div class="wrapper flex" id="app">
+  <div class="login-wrapper">
+    <div class="login-title">空气质量检测平台</div>
+    <div class="login-content">
+      <div class="serial-number">
+        <p>室内设备编号</p >
+        <input type="number" name="in_val" id="in_val" required placeholder="请输入编号" />
+      </div>
+      <div class="serial-number">
+        <p>电梯厅设备编号</p >
+        <input type="number" name="elev_val" id="elev_val" required placeholder="请输入编号" />
+      </div>
+      <div class="login-btn">确定</div>
+    </div>
+  </div>
+	<div class="wrapper flex" id="app">
     <div class="content-top">
-      <div class="logo"><img src="./imgs/logo.png" alt=""></div>
+      <div class="logo"><img src="./img/logo.png" alt=""></div>
       <div class="content-left" id="video-box">
+		  <div class="date-box">
+			  <p>日期：<i class="date-cn"></i></p>
+			  <p>Date：<i class="date-en"></i></p>
+		  </div>
           <video width="100%" loop autoplay="autoplay" controls id="video">
-            <source src="./imgs/GL_Video_2.mp4" type="video/mp4">
-              <!-- <source src="./imgs/greenland.mp4" type="video/mp4"> -->
+            <source src="./img/GL_Video_2.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
           </video>
-          <!-- <video width="100%" loop autoplay="autoplay" id="video">
-            <source :src="videoUrl" type="video/mp4">
-            Your browser does not support HTML5 video.
-          </video> -->
+		  <div class="tip-box">
+			  <p>温馨提示:<br />Tips:</p>
+			  <img src="./img/tips.png" />
+		  </div>
       </div>
     </div>
     <div class="content">
       <div class="name">
-        <img src="./imgs/group.svg" alt="">
+        <img src="./img/group.png" alt="">
       </div>
       <div class="content-right">
         <ul class="list">
@@ -35,23 +57,23 @@
               <span class="title-cn">室  内</span>
               <span class="title-en">Indoor</span>
             </div>
-            <span class="num" :class="[statusLevel]">25</span>
+            <span class="num" id="in-status">25</span>
             <div class="info">
                 <p class="info-data flex">
-                  <span>温度<i class="humid">Temperature</i></span>
-                  <span>77<i>&nbsp;℉</i></span>
+                  <span>TEMP</span>
+                  <span ><em id="inTemp">24</em><i >&nbsp;℃</i> / <em id="inFah">39</em><i>&nbsp;℉</i></span>
                 </p>
                 <p class="info-data flex">
-                  <span>湿度<i class="humid">Humidity</i></span>
-                  <span>56<i>&nbsp;%</i></span>
+                  <span>RH%</span>
+                  <span><em id="inHud">40</em><i>&nbsp;%</i></span>
                 </p>
                 <p class="info-data flex">
                   <span>CO<sub>2</sub></span>
-                  <span>395<i>&nbsp;ppm</i></span>
+                  <span><em id="inCo2">77</em><i>&nbsp;ppm</i></span>
                 </p>
                 <p class="info-data flex">
                   <span>TVOC</span>
-                  <span>3<i>&nbsp;ppm</i></span>
+                  <span><em id="inTvoc">56</em><i>&nbsp;ppm</i></span>
                 </p>
             </div>
           </li>
@@ -60,24 +82,24 @@
               <span class="title-cn">电 梯 厅</span>
               <span class="title-en">Elevator Hall</span>
             </div>
-            <span class="num" :class="[statusLevel]">27</span>
+            <span class="num" id="elev-status">27</span>
             <div class="info">
-                <p class="info-data flex">
-                  <span>温度<i class="humid">Temperature</i></span>
-                  <span>79<i>&nbsp;℉</i></span>
-                </p>
-                <p class="info-data flex">
-                  <span>湿度<i class="humid">Humidity</i></span>
-                  <span>55<i>&nbsp;%</i></span>
-                </p>
-                <p class="info-data flex">
-                  <span>CO<sub>2</sub></span>
-                  <span>380<i>&nbsp;ppm</i></span>
-                </p>
-                <p class="info-data flex">
-                  <span>TVOC</span>
-                  <span>3<i>&nbsp;ppm</i></span>
-                </p>
+              <p class="info-data flex">
+                <span>TEMP</span>
+                <span ><em id="elevTemp">24</em><i >&nbsp;℃</i> / <em id="elevFah">39</em><i>&nbsp;℉</i></span>
+              </p>
+              <p class="info-data flex">
+                <span>RH%</span>
+                <span><em id="elevHud">40</em><i>&nbsp;%</i></span>
+              </p>
+              <p class="info-data flex">
+                <span>CO<sub>2</sub></span>
+                <span><em id="elevCo2">77</em><i>&nbsp;ppm</i></span>
+              </p>
+              <p class="info-data flex">
+                <span>TVOC</span>
+                <span><em id="elevTvoc">56</em><i>&nbsp;ppm</i></span>
+              </p>
             </div>
           </li>
           <li class="item">
@@ -85,39 +107,30 @@
               <span class="title-cn">室   外</span>
               <span class="title-en">Outdoor</span>
             </div>
-            <span class="num" :class="[statusLevel]">{{ outdoorData.pm2_5 }}</span>
+            <span class="num out-pm" id="out-status" >25</span>
             <div class="info">
-                <p class="info-data flex">
-                  <span>温度<i class="humid">Temperature</i></span>
-                  <span>{{ outdoorData.temperature }}<i>&nbsp;℉</i></span>
-                </p>
-                <p class="info-data flex">
-                  <span>湿度<i class="humid">Humidity</i></span>
-                  <span>{{ outdoorData.humidity }}<i>&nbsp;%</i></span>
-                </p>
-                <p class="info-data flex">
-                  <span>PM2.5</span>
-                  <span>{{ outdoorData.pm2_5 }}<i>&nbsp;μg/m³</i></span>
-                </p>
+              <p class="info-data flex">
+                <span>TEMP</span>
+                <span ><em id="outTemp">24</em><i >&nbsp;℃</i> / <em id="outFah">39</em><i>&nbsp;℉</i></span>
+              </p>
+              <p class="info-data flex">
+                <span>RH%</span>
+                <span><em id="outHud">40</em><i>&nbsp;%</i></span>
+              </p>
+              <p class="info-data flex">
+                <span>PM2.5</span>
+                <span><em id="outPmC">1</em><i>&nbsp;μg/m³</i></span>
+              </p>
             </div>
           </li>
         </ul>
       </div>
     </div>
   </div>
-  <!-- <script>
-    var videoDOM = document.createElement('video')
-    videoDOM.setAttribute('autoplay', 'autoplay')
-    videoDOM.setAttribute('loop', 'loop')
-    videoDOM.style.width = '100%'
-    var sourceDOM = document.createElement('source')
-    sourceDOM.setAttribute('src', './imgs/video.mp4')
-    sourceDOM.setAttribute('type', 'video/mp4')
-    videoDOM.appendChild(sourceDOM)
-    var box = document.getElementById('video-box')
-    box.appendChild(videoDOM)
-  </script> -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+  <script src='./js/jquery-3.4.1.min.js'></script>
+  <script src='./js/index.js'></script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
     const WEATHER_URL = "http://aliv8.data.moji.com/whapi/json/aliweather/"
@@ -138,6 +151,7 @@
       data: {
         statusLevel: '',
         videoUrl: '',
+		date_now: new Date(),
         outdoorData: {
           temperature: '',
           humidity: '',
@@ -145,9 +159,14 @@
         }
       },
       mounted() {
-        this.videoUrl = './imgs/video.mp4'
+		var _this = this
+        this.videoUrl = './img/video.mp4'
         this.getAqi()
         this.getCondition()
+		setInterval(function() {
+			_this.date_now = new Date()
+			_this.getCondition()
+		}, 5000)
       },
       methods: {
         getAqi() {
@@ -192,6 +211,6 @@
         }
       }
     })
-  </script>
+  </script> -->
 </body>
 </html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="614px" height="75px" viewBox="0 0 614 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48 (47235) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="PingFangSC-Medium, PingFang SC" font-weight="400">
+        <g id="Group" transform="translate(34.000000, 5.000000)" fill="#FFFFFF">
+            <text id="空气质量在线监测平台" font-size="30" letter-spacing="23.333334">
+                <tspan x="8.27777481" y="32">空气质量在线监测平</tspan>
+                <tspan x="488.277781" y="32" letter-spacing="19.4444447">台</tspan>
+            </text>
+            <text id="Type-AIR-QUALITY-ONL" font-size="16" letter-spacing="2.28999996">
+                <tspan x="8.9380008" y="57">Type AIR QUALITY ONLINE MONITORING PLATFOR</tspan>
+                <tspan x="499.693999" y="57">M</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
