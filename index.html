@@ -32,18 +32,20 @@
     <div class="content-top">
       <div class="logo"><img src="./img/logo.png" alt=""></div>
       <div class="content-left" id="video-box">
-		  <div class="date-box">
-			  <p>日期：<i class="date-cn"></i></p>
-			  <p>Date：<i class="date-en"></i></p>
-		  </div>
-          <video width="100%" loop controls id="video">
-            <source src="./img/GL_Video_2.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-          </video>
-		  <div class="tip-box">
-			  <p>温馨提示:<br />Tips:</p>
-			  <img src="./img/tips.png" />
-		  </div>
+        <div class="left-section">
+          <div class="date-box">
+            <p>日期：<i class="date-cn"></i></p>
+            <p>Date：<i class="date-en"></i></p>
+          </div>
+              <video width="100%" loop controls id="video">
+                <source src="./img/GL_Video_2.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+          <div class="tip-box">
+            <p>温馨提示:<br />Tips:</p>
+            <img src="./img/tips.png" class="tips-img" />
+          </div>
+        </div>
       </div>
     </div>
     <div class="content">
@@ -57,7 +59,9 @@
               <span class="title-cn">室  内</span>
               <span class="title-en">Indoor</span>
             </div>
-            <span class="num" id="in-status">25</span>
+            <div class="num" id="in-status">
+              <span class="num-val in-pm">25</span>
+            </div>
             <div class="info">
                 <p class="info-data flex">
                   <span>TEMP</span>
@@ -82,7 +86,9 @@
               <span class="title-cn">电 梯 厅</span>
               <span class="title-en">Elevator Hall</span>
             </div>
-            <span class="num" id="elev-status">27</span>
+            <div class="num" id="elev-status">
+              <span class="num-val elev-val">27</span>
+            </div>
             <div class="info">
               <p class="info-data flex">
                 <span>TEMP</span>
@@ -107,7 +113,9 @@
               <span class="title-cn">室   外</span>
               <span class="title-en">Outdoor</span>
             </div>
-            <span class="num out-pm" id="out-status" >25</span>
+            <div class="num" id="out-status" >
+              <span class="num-val out-pm">25</span>
+            </div>
             <div class="info">
               <p class="info-data flex">
                 <span>TEMP</span>

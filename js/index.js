@@ -13,7 +13,7 @@ if(!in_id || !elev_id) {
       window.localStorage.setItem('elev_id', elev_val)
       $('.login-wrapper').hide(500)
 
-      $('#video source').attr('autoplay', 'autoplay')
+      $('#video')[0].play()
 
       in_id = localStorage.getItem('in_id')
       elev_id = localStorage.getItem('elev_id')
@@ -23,7 +23,7 @@ if(!in_id || !elev_id) {
   })
 } else {
   $('.login-wrapper').hide()
-  $('#video source').attr('autoplay', 'autoplay')
+  $('#video')[0].play()
   getInAqi(in_id)
   getElevAqi(elev_id)
 }
@@ -43,21 +43,29 @@ function getOutAqi () {
     success: function(res){
       console.log(res);
       var AQI = res.data.aqi.value
+      
       $('.out-pm').html(AQI);
       $('#outPmC').html(Math.round(Number(res.data.aqi.pm25C)));
       
+      $('#out-status')[0].className = 'num'
       if(AQI >= 0 && AQI <= 50) {
         $('#out-status').addClass('status-lv1')
+        $('.tips-img').attr('src', './img/tips.png')
       } else if(AQI > 50 && AQI <= 100) {
         $('#out-status').addClass('status-lv2')
+        $('.tips-img').attr('src', './img/tips2.png')
       } else if(AQI > 100 && AQI <= 150) {
         $('#out-status').addClass('status-lv3')
+        $('.tips-img').attr('src', './img/tips3.png')
       } else if(AQI > 150 && AQI <= 200) {
         $('#out-status').addClass('status-lv4')
+        $('.tips-img').attr('src', './img/tips4.png')
       } else if(AQI > 200 && AQI <= 300) {
         $('#out-status').addClass('status-lv5')
+        $('.tips-img').attr('src', './img/tips5.png')
       } else if(AQI > 300) {
         $('#out-status').addClass('status-lv6')
+        $('.tips-img').attr('src', './img/tips6.png')
       }
     }
   })
@@ -101,8 +109,9 @@ function getInAqi (id) {
       $('#inHud').html(Math.round(res.humidity))
       $('#inCo2').html(Math.round(res.co2))
       $('#inTvoc').html(Math.round(res.tvoc))
-      $('#in-status').html(AQI)
+      $('.in-pm').html(AQI)
 
+      $('#in-status')[0].className = 'num'
       if(AQI >= 0 && AQI <= 50) {
         $('#in-status').addClass('status-lv1')
       } else if(AQI > 50 && AQI <= 100) {
@@ -136,8 +145,9 @@ function getElevAqi (id) {
       $('#elevHud').html(Math.round(res.humidity))
       $('#elevCo2').html(Math.round(res.co2))
       $('#elevTvoc').html(Math.round(res.tvoc))
-      $('#elev-status').html(AQI)
+      $('.elev-val').html(AQI)
 
+      $('#elev-status')[0].className = 'num'
       if(AQI >= 0 && AQI <= 50) {
         $('#elev-status').addClass('status-lv1')
       } else if(AQI > 50 && AQI <= 100) {
@@ -187,23 +197,29 @@ function formatDate() {
      week = '星期六'
      break;
   }
-  var date_cn = yy + '-' + mm + '-' + dd + ' ' + h + ':' + min + ' ' + week
+  var date_cn = yy + '-' + mm + '-' + dd + ', ' + week + ', ' + h + ':' + min
   var date_en = date.toString().substring(0, date.toString().lastIndexOf(':'))
+  var date_arr = date_en.split(' ')
+  var date_en_format = date_arr[1]+'.'+date_arr[2]+','+date_arr[3]+','+date_arr[0]+'.'+date_arr[4]
   $('.date-cn').html(date_cn);
-  $('.date-en').html(date_en);
+  $('.date-en').html(date_en_format);
 }
 
 getOutAqi();
 getCondition();
 formatDate();
 
-var timer;
-clearInterval(timer)
+var timer1, timer2;
+clearInterval(timer1)
+clearInterval(timer2)
 
-timer = setInterval(function() {
+timer1 = setInterval(function() {
   getInAqi(in_id)
   getElevAqi(elev_id)
-  getOutAqi()
-  getCondition()
   formatDate()
 }, 60000)
+
+timer2 = setInterval(function() {
+  getOutAqi()
+  getCondition()
+}, 3600000)
